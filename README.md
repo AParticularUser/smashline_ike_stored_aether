@@ -1,4 +1,4 @@
-------------------------------------------------Stored Eather------------------------------------------------
+------------------------------------------------Stored Aether------------------------------------------------
 
 The source code for my Stored Eather mod for SSBU, written in Rust-Smashline.
 This mod was inspired by a similar machanic featured in Brawl- a mod for SSBB.
