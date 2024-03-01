@@ -52,7 +52,7 @@ mod custom_var_hooks;
 mod common;
 mod ike;
 
-#[skyline::main(name = "ike_stored_eather")]
+#[skyline::main(name = "ike_stored_aether")]
 pub fn main() {
     custom_var_hooks::install();
     ike::install();

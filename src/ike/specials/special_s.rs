@@ -5,6 +5,7 @@ use crate::ike::consts::{
     param
 };
 
+
 //removed special-fall from side-special
 unsafe extern "C" fn fall_special_status_pre(agent: &mut L2CFighterCommon) -> L2CValue {
     if agent.global_table[global_table::PREV_STATUS_KIND].get_i32() == *FIGHTER_IKE_STATUS_KIND_SPECIAL_S_END 
@@ -32,8 +33,8 @@ unsafe extern "C" fn fall_aerial_status_main(agent: &mut L2CFighterCommon) -> L2
 unsafe extern "C" fn special_s_attack_game(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
-        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
-            AttackModule::set_power_add_status(agent.module_accessor, param::IKE_FLOAT_STORED_EATHER_MUL);
+        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
+            AttackModule::set_power_add_status(agent.module_accessor, param::IKE_FLOAT_STORED_AETHER_MUL);
             DamageModule::add_damage(agent.module_accessor, 2.0, 0);
             macros::ATTACK(agent, 0, 0, Hash40::new("top"), 6.0, 60, 88, 0, 70, 6.5, 0.0, 8.4, 14.8, Some(0.0), Some(8.4), Some(10.7), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_aura"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_IKE, *ATTACK_REGION_SWORD);
         }else {
@@ -51,7 +52,7 @@ unsafe extern "C" fn special_s_attack_game(agent: &mut L2CAgentBase) {
     }
 }
 unsafe extern "C" fn special_s_attack_eff(agent: &mut L2CAgentBase) {
-    if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
+    if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
         frame(agent.lua_state_agent, 1.0);
         if macros::is_excute(agent) {
             macros::LANDING_EFFECT(agent, Hash40::new("sys_atk_smoke"), Hash40::new("top"), 6, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
@@ -98,7 +99,7 @@ unsafe extern "C" fn special_s_attack_eff(agent: &mut L2CAgentBase) {
 }
 unsafe extern "C" fn special_s_dash_eff(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
+        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
             macros::EFFECT_FOLLOW(agent, Hash40::new("ike_final_sword_fire"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, false);
         }
         macros::EFFECT(agent, Hash40::new("sys_smash_flash"), Hash40::new("top"), 0, 13, 4, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
@@ -117,7 +118,7 @@ unsafe extern "C" fn special_s_dash_eff(agent: &mut L2CAgentBase) {
         }
         wait(agent.lua_state_agent, 4.0);
         if macros::is_excute(agent) {
-            if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
+            if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
                 macros::EFFECT_FOLLOW(agent, Hash40::new("ike_final_sword_fire"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, false);
             }
             macros::FOOT_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, false);
@@ -127,7 +128,7 @@ unsafe extern "C" fn special_s_dash_eff(agent: &mut L2CAgentBase) {
 }
 unsafe extern "C" fn special_air_s_dash_eff(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
-        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
+        if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
             macros::EFFECT_FOLLOW(agent, Hash40::new("ike_final_sword_fire"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, false);
         }else {
             macros::EFFECT_FOLLOW(agent, Hash40::new("ike_sword"), Hash40::new("sword"), 0, 0, 0, 0, 0, 0, 1, true);
@@ -139,7 +140,7 @@ unsafe extern "C" fn special_air_s_dash_eff(agent: &mut L2CAgentBase) {
         macros::EFFECT_FOLLOW(agent, Hash40::new("ike_iaigiri"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, true);
         EffectModule::enable_sync_init_pos_last(agent.module_accessor);
     }
-    if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_EATHER) {
+    if VarModule::is_flag(agent.module_accessor, instance::IKE_FLAG_STORED_AETHER) {
         frame(agent.lua_state_agent, 9.0);
         loop {
             if macros::is_excute(agent) {
